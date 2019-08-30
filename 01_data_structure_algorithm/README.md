@@ -1,5 +1,7 @@
 # Data Structure & Algorithm
 
+## Palindrom case
+
 To be written.
 
 ## How data stored

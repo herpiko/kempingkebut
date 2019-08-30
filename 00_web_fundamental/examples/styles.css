@@ -1,0 +1,51 @@
+/* Main CSS */
+
+.biru {
+  background:blue;
+}
+
+
+#header-wrapper {
+  background:#3B5598;
+  margin-bottom:-16px;
+}
+
+#header-logo {
+  color:#FFF;
+  font-weight:bold;
+	text-decoration:none;
+}
+
+body {
+  font-family:Arial !important;
+  margin:0;
+}
+
+#header {
+	width:980px;
+  margin:0 auto;
+}
+
+#content-wrapper {
+  background:blue;
+}
+
+#content {
+	width:980px;
+  margin:0 auto;
+  background:red;
+}
+
+#footer-wrapper {
+	width:980px;
+  margin:0 auto;
+}
+
+#content-left {
+  width:536px;
+  display:inline-block;
+}
+
+#content-right {
+  display:inline-block;
+}

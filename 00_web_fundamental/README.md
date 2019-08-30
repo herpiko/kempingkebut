@@ -5,6 +5,10 @@
 .tips {
   border:2px solid orange;padding:3px 5px 3px 5px;
 }
+img {
+	width:980px;
+  border:1px solid lightgrey;padding:4px 4px 4px 4px;
+}
 </style>
 # Web Fundamental
 
@@ -53,7 +57,7 @@ Elemen adalah representasi dari struktur semantik dokumen HTML. Sebuah elemen me
 DOM (Document Object Model) adalah standar untuk mengakses dan mengatur dokumen XML atau HTML. Setiap elemen memiliki antar muka DOM yang dapat diakses secara programatikal, misal melalu bahasa JavaScript.
 
 <div class="tips">
-Demo manipulasi DOM melalui JavaScript 
+Demo manipulasi DOM melalui JavaScript
 </div>
 
 ## Header
@@ -62,47 +66,62 @@ Tag `<head>` menyimpan informasi spesifik mengenai halaman web, kadang disebut s
 
 ## Paragraph
 
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
 <body>
   <p>
     Facebook membantu Anda terhubung dan berbagi dengan orang-orang dalam kehidupan Anda.
   </p>
 </body>
+
+...
 ```
 
 ## Div
 
 Tag `<div>` digunakan untuk mendefinisikan divisi atau seksi atau bagian pada dokumen HTML. Elemen `<div>` menjadi wadah bagi elemen lainnya.
 
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
 <body>
 
   <div>
-    Facebook
+    <div>
+      facebook
+    </div>
   </div>
-  
+
   <div>
-  
     <div>
-      <p>
-        Facebook membantu Anda terhubung dan berbagi dengan orang- orang dalam kehidupan Anda.
-      </p>
-    </div>
-    
-    <div>
-      Daftar
+
       <div>
-    	Ini cepat dan mudah.
+        <p>
+          Facebook membantu Anda terhubung dan berbagi dengan orang- orang dalam kehidupan Anda.
+        </p>
       </div>
+
+      <div>
+        Daftar
+        <div>
+          Ini cepat dan mudah.
+        </div>
+      </div>
+
     </div>
-    
   </div>
-  
+
+
   <div>
     Bahasa Indonesia
   </div>
 
 </body>
+
+...
 ```
 
 <div class="tips">
@@ -113,20 +132,30 @@ Inspeksi dengan fitur Inspect Element dari peramban
 
 Tag `<img/>` digunakan untuk menyisipkan gambar pada halaman HTML. Gambar itu sendiri dapat bersumber dari sebuah berkas di dekat berkas HTML itu sendiri maupun tautan URL yang valid.
 
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
   <div>
     <p>
       Facebook membantu Anda terhubung dan berbagi dengan orang- orang dalam kehidupan Anda.
     </p>
-    <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png?_nc_x=Ij3Wp8lg5Kz"/>
+    <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png"/>
   </div>
+
+...
 ```
+
+<img src="assets/Screenshot from 2019-08-30 01-02-05.png"/>
 
 ## List
 
 Untuk membuat daftar, gunakan tag `<ul>` dan `<li>`.  Tag `<ul>` adalah pembungkus dari daftar item sementara `<li>` adalah pembungkus item itu sendiri.
 
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
   <div>
     <ul>
       <li>
@@ -143,6 +172,8 @@ Untuk membuat daftar, gunakan tag `<ul>` dan `<li>`.  Tag `<ul>` adalah pembungk
       </li>
     </ul>
   </div>
+
+...
 ```
 
 ## Links
@@ -151,26 +182,35 @@ Tautan menghubungkan dokumen HTML yang satu dengan yang lain. Saat sebuah tautan
 
 Tautan dibentuk dengan tag `<a>` dan halaman tujuannya didefinisikan dengan atribut `href`.
 
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
   <div>
-    <a href="https://www.facebook.com">Facebook</a>
+    <div>
+      <a href="https://www.facebook.com">facebook</a>
+    </div>
   </div>
+
+...
 ```
 
 ## Input
 
 Dokumen HTML dapat menerima input untuk diproses baik oleh kode di peramban maupun oleh server. Input ini dapat ditangani dengan tag `<input/>`
 
-
+<span class="edit-file">&#9998;  index.html</span>
 ```
+...
+
     <div>
       Daftar
       <div>
     	Ini cepat dan mudah.
       </div>
-      
+
       <div>
-      
+
         <input placeholder="Nama depan"/>
         <input placeholder="Nama belakang"/>
         <div>
@@ -179,7 +219,7 @@ Dokumen HTML dapat menerima input untuk diproses baik oleh kode di peramban maup
         <div>
           <input placeholder="Kata sandi baru"/>
         </div>
-        
+
         <div>
           Tanggal Lahir<br/>
           <select>
@@ -198,17 +238,19 @@ Dokumen HTML dapat menerima input untuk diproses baik oleh kode di peramban maup
             <option>2000</option>
           </select>
         </div>
-        
+
         <div>
           Jenis Kelamin<br/>
           <input type="checkbox"/> Perempuan
           <input type="checkbox"/> Laki-laki
           <input type="checkbox"/> Khusus
         </div>
-        
+
       </div>
-      
+
     </div>
+
+...
 ```
 
 Contoh tag lain untuk menerima input misalnya `<textarea>` dan select `<select>`.
@@ -243,34 +285,32 @@ Form. daftar
     }
   </style>
   <div class="biru">Omama</div>
-``` 
+```
 ### Berkas terpisah
 
-Isi berkas `styles.css`
+<span class="edit-file">&#9998;  styles.css</span>
 ```
-#biru {
+/* Main CSS */
+
+.biru {
   background:blue;
 }
 
 ```
 
-Integrasi di HTML
+<span class="edit-file">&#9998;  index.html</span>
 ```
   <head>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div id="biru">Omama</div>
+    <div class="biru"">
+      <div>
+        <a href="https://www.facebook.com">facebook</a>
+      </div>
+    </div>
   </body>
 ```
-
-Buat berkas baru,
-
-<span class="edit-file">&#9998;  styles.css</span>
-```
-/* Main CSS */
-```
-
 
 ## Ukuran (Measurement
 
@@ -291,7 +331,7 @@ Nilai warna dapat diwakili oleh *color name*, kode *hex* maupun kode desimal RGB
 | red | FF0000 | 255,0,0 |
 
 
-## Backgrounds
+## Background & Color
 
 Dengan *background* sebuah elemen (biasanya `div`) dapat dilatari oleh warna atau gambar.
 
@@ -305,46 +345,146 @@ background-image: url("berkas-gambar.png");
 
 `background-image` memiliki beberapa property pendukung seperti `background-repeat`, `background-position` dan lainnya.
 
+Sementara *property* `color` akan berdampak ke isi dari sebuah elemen. Bila sebuah elemen div berisi teks memiliki `color:blue;`, maka teks dalam div tersebut akan berwarna biru.
+
 <span class="edit-file">&#9998;  styles.css</span>
 ```
 /* Main CSS */
 
-#header {
+.biru {
+  background:blue;
+}
+
+#header-wrapper {
   background:3B5598;
+  color:white;
+}
+
+#header-logo {
+  color:#FFF;
 }
 ```
+
 <span class="edit-file">&#9998;  index.html</span>
 ```
-  <div id="header">
-    <a href="https://www.facebook.com">Facebook</a>
+  <div id="header-wrapper">
+    <a id="header-logo" href="https://www.facebook.com">facebook</a>
   </div>
 ```
 
 ## Fonts
 
-To be written.
+Font memiliki banyak property seperti `font-family`, `font-style`, `font-size`
+
+<span class="edit-file">&#9998;  styles.css</span>
+```
+...
+
+#header-logo {
+  color:#FFF;
+  font-weight:bold;
+}
+
+body {
+  font-family:Arial !important;
+}
+
+```
 
 ## Text
 
-To be written.
+<span class="edit-file">&#9998;  styles.css</span>
+```
+...
 
-## Images
+#header-logo {
+  color:#FFF;
+  font-weight:bold;
+	text-decoration:none;
+}
 
-To be written.
+body {
+  font-family:Arial !important;
+  text-align:center;
+}
 
-## Margin & Padding
+...
+
+```
+
+## Layouting, Margin & Padding
+
+<img src="assets/Screenshot from 2019-08-30 00-54-30.png">
+<img src="assets/Screenshot from 2019-08-30 00-46-43.png">
+<img src="assets/Screenshot from 2019-08-30 00-48-38.png">
+
+
+<span class="edit-file">&#9998;  styles.css</span>
+```
+...
+#header-wrapper {
+  background:#3B5598;
+  margin-bottom:-16px;
+}
+...
+
+body {
+  font-family:Arial !important;
+  margin:0;
+}
+
+#header {
+	width:980px;
+  margin:0 auto;
+}
+
+#content-wrapper {
+  background:blue;
+}
+
+#content {
+	width:980px;
+  margin:0 auto;
+  background:red;
+}
+
+...
+
+```
+
+<span class="edit-file">&#9998;  index.html</span>
+```
+...
+
+  <div id="header-wrapper">
+	  <div id="header">
+    	<a id="header-logo" href="https://www.facebook.com">facebook</a>
+		</div>
+  </div>
+
+  <div id="content-wrapper">
+    <div id="content">
+      <div>
+        <p>
+          Facebook membantu Anda terhubung dan berbagi dengan orang- orang dalam kehidupan Anda.
+        </p>
+
+...
+
+  <div id="footer-wrapper">
+    <ul>
+      <li>
+        Bahasa Indonesia
+      </li>
+
+...
+```
+
+<img src="assets/Screenshot from 2019-08-30 00-41-18.png">
 
 To be written.
 
 ## Borders
-
-To be written.
-
-## Links
-
-To be written.
-
-## Tables
 
 To be written.
 
@@ -374,5 +514,6 @@ To be written.
 
 ## CSS Frameworks
 
-To be written.
+- Bootstrap
+- Elastic UI
 
