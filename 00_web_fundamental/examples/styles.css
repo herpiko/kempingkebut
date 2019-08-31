@@ -2,18 +2,23 @@
 
 .biru {
   background:blue;
+  width:100% !important;
 }
 
 
 #header-wrapper {
   background:#3B5598;
-  margin-bottom:-16px;
+  height:82px;
 }
 
+#header-logo-wrapper {
+  padding-top:22px;
+}
 #header-logo {
   color:#FFF;
   font-weight:bold;
 	text-decoration:none;
+  font-size:40px;
 }
 
 body {
@@ -24,16 +29,16 @@ body {
 #header {
 	width:980px;
   margin:0 auto;
+  height:82px;
 }
 
 #content-wrapper {
-  background:blue;
+  background: url(gradient-bg.png) 0 bottom repeat-x;
 }
 
 #content {
 	width:980px;
   margin:0 auto;
-  background:red;
 }
 
 #footer-wrapper {
@@ -44,8 +49,42 @@ body {
 #content-left {
   width:536px;
   display:inline-block;
+  padding-left:15px;
 }
 
 #content-right {
+  width:400px;
   display:inline-block;
+}
+
+#content-left-p {
+  color: #0e385f;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 29px;
+  margin-top: 40px;
+  width: 450px;
+  word-spacing: -1px;
+  
+}
+
+h1 {
+	font-size:36px;
+}
+#content-right-p {
+	font-size:19px;
+}
+
+#form {
+	width:100%;
+	margin-top:20px;
+}
+
+td {
+	padding-bottom:5px;
+}
+
+.form-register-input {
+	width:97%;
+	height:30px;
 }

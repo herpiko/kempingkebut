@@ -91,7 +91,9 @@ Tag `<div>` digunakan untuk mendefinisikan divisi atau seksi atau bagian pada do
 
   <div>
     <div>
-      facebook
+    	<div>
+     	 facebook
+    	</div>
     </div>
   </div>
 
@@ -186,11 +188,13 @@ Tautan dibentuk dengan tag `<a>` dan halaman tujuannya didefinisikan dengan atri
 ```
 ...
 
-  <div>
     <div>
-      <a href="https://www.facebook.com">facebook</a>
+      <div>
+      	<div>
+       	 <a href="https://www.facebook.com">facebook</a>
+      	</div>
+      </div>
     </div>
-  </div>
 
 ...
 ```
@@ -306,7 +310,9 @@ Form. daftar
   <body>
     <div class="biru"">
       <div>
+      	<div>
         <a href="https://www.facebook.com">facebook</a>
+      	</div>
       </div>
     </div>
   </body>
@@ -368,7 +374,9 @@ Sementara *property* `color` akan berdampak ke isi dari sebuah elemen. Bila sebu
 <span class="edit-file">&#9998;  index.html</span>
 ```
   <div id="header-wrapper">
-    <a id="header-logo" href="https://www.facebook.com">facebook</a>
+  	<div>
+   	 <a id="header-logo" href="https://www.facebook.com">facebook</a>
+  	</div>
   </div>
 ```
 
@@ -458,7 +466,9 @@ body {
 
   <div id="header-wrapper">
 	  <div id="header">
-    	<a id="header-logo" href="https://www.facebook.com">facebook</a>
+	  	<div>
+    		<a id="header-logo" href="https://www.facebook.com">facebook</a>
+			</div>
 		</div>
   </div>
 
@@ -482,35 +492,29 @@ body {
 
 <img src="assets/Screenshot from 2019-08-30 00-41-18.png">
 
-To be written.
-
 ## Borders
 
-To be written.
+```
+
+```
 
 ## Overflow
 
-To be written.
+```
+
+```
 
 ## Position
 
-To be written.
+```
+
+```
 
 ## Display
 
-To be written.
+```
 
-## Gradient
-
-To be written.
-
-## Rotate
-
-To be written.
-
-## Animation
-
-To be written.
+```
 
 ## CSS Frameworks
 

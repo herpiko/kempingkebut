@@ -398,11 +398,52 @@ if (...) {
 
 ## Perulangan (Loop)
 
-To be written.
+```
+for (let i in fruits) {
+	console.log(fruits[i]);
+}
+```
+```
+for (let i = 0; i < 5; i++) {
+	console.log(i);
+}
+```
 
-## Fungsi dan Ekspresi
+## Fungsi
 
-To be written.
+```
+function functionName(){
+  ...
+}
+```
+
+```
+var functionName = function(){
+  ...
+}
+```
+
+```
+var functionName = () => {
+  ...
+}
+```
+
+### Parameter
+
+```
+var functionName = (name) => {
+  console.log(`Hello, ${name}`)
+}
+```
+
+### Return
+
+```
+var functionName = (name) => {
+  return `Hello, ${name}`
+}
+```
 
 ## Object, Properties & Methods
 
@@ -414,7 +455,8 @@ To be written.
 
 ## DOM Manipulation
 
-To be written.
+```
+```
 
 ## Advanced Objects
 

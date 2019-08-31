@@ -12,36 +12,48 @@
 
   <div id="header-wrapper">
 	  <div id="header">
-    	<a id="header-logo" href="https://www.facebook.com">facebook</a>
+	    <div id="header-logo-wrapper">
+    	  <a id="header-logo" href="https://www.facebook.com">facebook</a>
+		  </div>
 		</div>
   </div>
   
   <div id="content-wrapper">
     <div id="content">
-      <div>
-        <p>
+      <div id="content-left">
+        <p id="content-left-p">
           Facebook membantu Anda terhubung dan berbagi dengan orang- orang dalam kehidupan Anda.
         </p>
         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png"/>
       </div>
       
-      <div>
-        Daftar
-        <div>
+      <div id="content-right">
+        <h1>Daftar</h1>
+        <span id="content-right-p">
       	Ini cepat dan mudah.
-        </div>
+        </span>
   
         <div>
-        
-          <input placeholder="Nama depan"/>
-          <input placeholder="Nama belakang"/>
-          <div>
-            <input placeholder="Nomor seluler atau email"/>
-          </div>
-          <div>
-            <input placeholder="Kata sandi baru"/>
-          </div>
-          
+					<table id="form" border="0">
+						<tr>
+							<td>
+          			<input style="height:30px;" placeholder="Nama depan"/>
+							</td>
+							<td>
+          			<input style="height:30px;" placeholder="Nama belakang"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2">
+            		<input class="form-register-input" placeholder="Nomor seluler atau email"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan=2">
+            		<input class="form-register-input" placeholder="Kata sandi baru"/>
+							</td>
+						</tr>
+					</table>
           <div>
             Tanggal Lahir<br/>
             <select>
