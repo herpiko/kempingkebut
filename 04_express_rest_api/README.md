@@ -87,10 +87,14 @@ Buat berkas baru `server.js`,
 const express = require('express'); 
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const app = express();app.use(logger('dev'));
+const app = express();
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
+
+
+
  res.json({"message" : "Hello world!"});
 });
 
@@ -100,8 +104,18 @@ app.listen(3000, () => {
 
 ```
 
+Jalankan dengan `nodemon server.js` lalu buka `localhost:3000` di peramban.
 
-Jalankan dengan `node server.js` lalu buka `localhost:3000` di peramban.
+Jika sukses, letakkan perintah tersebut ke `package.json`, sesuaikan juga field `main` di berkas tersebut,
+```
+...
+  "main": "server.js",
+  "scripts": {
+    "serve": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+...
+```
 
 ## Struktur aplikasi
 
@@ -121,7 +135,6 @@ Buat berkas konfigurasi database di `config/database.js`,
 const mongoose = require('mongoose');
 const mongoDB = 'mongodb://localhost/note_api';
 mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
 
 module.exports = mongoose;
 ```
@@ -205,9 +218,15 @@ module.exports = {
             data:{user: userInfo, token:token}});
         } else {
           res.json({
-            status:"error",
-            message: "not-ok",
-            data:null
+            status:"success",
+            message: "ok",
+            data:{
+              user: {
+                name: userInfo.name,
+                email: userInfo.email
+              },
+              token:token
+            }
           });
         }
       }
@@ -234,10 +253,12 @@ Perbarui `server.js` untuk memasangkan route user
 const express = require('express'); 
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const app = express();app.use(logger('dev'));
+const app = express();
+app.use(logger('dev'));
 
 //
 const users = require('./routes/users');
+
 const mongoose = require('./config/database');
 var jwt = require('jsonwebtoken');
 app.use(bodyParser.urlencoded({extended: false}));
@@ -584,11 +605,132 @@ Dengan nilai `x-access-token` diletakkan di *header*,
     "data": null
 }
 ```
-## Explanation
+
+## Unit Testing
+
+Pasang paket dependensi tambahan untuk keperluan testing,
+```
+npm install --save mocha chai chai-http
+```
+
+Tambahkan 1 baris berikut di akhir berkas `server.js` (baris yang diperbarui ditandai dengan `//`),
+```
+...
+app.listen(3000, () => {
+  console.log('Node server listening on port 3000');
+});
+
+//
+module.exports = app;
+```
+Tambahkan pengkondisian untuk mode `test` di `config/database.js` (baris yang diperbarui ditandai dengan `//`),
+```
+const mongoose = require('mongoose');
+const mongoDB = 'mongodb://localhost/note_api';
+const mongoDBTest = 'mongodb://localhost/note_api_test';
+
+//
+if (process.env.NODE_ENV === 'test') {
+  mongoose.connect(mongoDBTest);
+} else {
+  mongoose.connect(mongoDB);
+}
+
+module.exports = mongoose;
+```
+
+Buat direktori `tests` lalu tulis berkas `tests/auth.js`,
+```
+const mongoose = require('mongoose')
+const chai = require('chai');
+const expect = chai.expect;
+const chaiHttp = require('chai-http');
+const app = require('../server');
+
+function connectAndCleanDatabase(done) {
+  mongoose.connect('mongodb://localhost/note_api_test', () => {
+    mongoose.connection.db.dropDatabase();
+    done();
+  });
+}
+
+chai.use(chaiHttp);
+chai.should();
+describe("Users", () => {
+  before((done) => {
+      connectAndCleanDatabase(done);
+  });
+  describe("POST /users/register", () => {
+    it("should be able to register", (done) => {
+      chai.request(app)
+      .post('/users/register')
+      .set('content-type', 'application/x-www-form-urlencoded')
+      .send({
+        email: 'foo@bar.com',
+        name: 'foo',
+        password: 'bar',
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        expect(res.body.message).to.equal('ok');
+        done();
+      })
+    })
+    it("should be able to login", (done) => {
+      chai.request(app)
+      .post('/users/authenticate')
+      .set('content-type', 'application/x-www-form-urlencoded')
+      .send({
+        email: 'foo@bar.com',
+        password: 'bar',
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        expect(res.body.message).to.equal('ok');
+        expect(res.body.data.user.name).to.equal('foo');
+        expect(res.body.data.user.email).to.equal('foo@bar.com');
+        expect(res.body.data.user.password).to.equal(undefined);
+        expect(res.body.data.token).to.be.a('string');
+        expect(res.body.data.token.length).to.greaterThan(0);
+        done();
+      })
+    })
+  })
+})
+```
+
+Lakukan unit testing dengan perintah berikut,
+```
+NODE_ENV=test ./node_modules/.bin/mocha tests/*.js --exit
+```
+
+Letakkan perintah tersebut ke `package.json` sebagai script `test`,
+```
+...
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha tests/*.js --exit"
+  },
+  "author": "Herpiko Dwi Aguno <herpiko@gmail.com>",
+  "license": "ISC",
+...
+```
+## Further Explanation
+
+### Code Style Guide
+
+To be written.
 
 ### Router
 
+To be written.
+
 ### Methods
+
+To be written.
 
 ### URL query & params
 
@@ -614,5 +756,4 @@ To be written.
 <hr>
 
 Referensi:
-
 - https://medium.com/@bhanushali.mahesh3/building-a-restful-crud-api-with-node-js-jwt-bcrypt-express-and-mongodb-4e1fb20b7f3d
