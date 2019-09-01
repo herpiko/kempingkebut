@@ -401,7 +401,6 @@ module.exports = {
           notesList.push({
             id: note._id,
             name: note.name,
-            released_on: note.released_on
           });
         }
         res.json({
@@ -417,11 +416,13 @@ module.exports = {
   },
   updateById: (req, res, next) => {
     noteModel.findByIdAndUpdate(req.params.noteId, {
-      name: req.body.name
+      name: req.body.name,
+      content: req.body.content,Sunday, 01. September 2019 03:45PM 
+
     }, (err, noteInfo) => {
-      if (err)
+      if (err) {
         next(err);
-      else {
+      } else {
         res.json({
           status: "success",
           message: "ok",
@@ -432,9 +433,9 @@ module.exports = {
   },
   deleteById: (req, res, next) => {
     noteModel.findByIdAndRemove(req.params.noteId, (err, noteInfo) => {
-      if (err)
+      if (err) {
         next(err);
-      else {
+      } else {
         res.json({
           status: "success",
           message: "ok",
@@ -449,15 +450,15 @@ module.exports = {
       content: req.body.content,
       userId: req.body.userId,
     }, (err, result) => {
-      if (err)
+      if (err) {
         next(err);
-      else
+      } else {
         res.json({
           status: "success",
           message: "ok",
           data: null
         });
-
+      }
     });
   },
 }
@@ -717,6 +718,23 @@ Letakkan perintah tersebut ke `package.json` sebagai script `test`,
   "author": "Herpiko Dwi Aguno <herpiko@gmail.com>",
   "license": "ISC",
 ...
+```
+
+## CURL
+
+Request GET,
+```
+curl -X GET localhost:3000/notes
+```
+
+Request GET dengan headers,
+```
+curl -H "x-access-token:TOKEN_STRING" -X GET http://localhost:3000/notes
+```
+
+Request POST,
+```
+curl -d "name=Piko&email=herpiko@aguno.xyz&password=foo" -X POST http://localhost:3000/users/register
 ```
 ## Further Explanation
 
