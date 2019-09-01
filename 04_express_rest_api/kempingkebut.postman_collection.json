@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "a4e23c25-d162-44d5-8868-68a9d7c0cbea",
+		"name": "kempingkebut",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/users/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Herpiko",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "herpiko@aguno.xyz",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "foobar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/users/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "herpiko@aguno.xyz",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "foobar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/users/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/notes/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNmIwYTNkOTYxZWJhNmEwZGYzY2ZlZiIsImlhdCI6MTU2NzI5NzIyOCwiZXhwIjoxNTY3MzAwODI4fQ.3TxPNn7MOppVMj7nIPOL8ceStFNhfIw62vuv5TnD5O4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Catatan baru",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Booo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/notes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/notes/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNmIwYTNkOTYxZWJhNmEwZGYzY2ZlZiIsImlhdCI6MTU2NzI5NzIyOCwiZXhwIjoxNTY3MzAwODI4fQ.3TxPNn7MOppVMj7nIPOL8ceStFNhfIw62vuv5TnD5O4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/notes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/notes/5d6b12baab76f2749cba3db2 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNmIwYTNkOTYxZWJhNmEwZGYzY2ZlZiIsImlhdCI6MTU2NzI5NzIyOCwiZXhwIjoxNTY3MzAwODI4fQ.3TxPNn7MOppVMj7nIPOL8ceStFNhfIw62vuv5TnD5O4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/notes/5d6b12baab76f2749cba3db2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"5d6b12baab76f2749cba3db2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/notes/5d6b12baab76f2749cba3db2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNmIwYTNkOTYxZWJhNmEwZGYzY2ZlZiIsImlhdCI6MTU2NzI5NzIyOCwiZXhwIjoxNTY3MzAwODI4fQ.3TxPNn7MOppVMj7nIPOL8ceStFNhfIw62vuv5TnD5O4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Catatan updated",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Foo bar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/notes/5d6b12baab76f2749cba3db2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"5d6b12baab76f2749cba3db2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/notes/5d6b126cab76f2749cba3db1",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNmIwYTNkOTYxZWJhNmEwZGYzY2ZlZiIsImlhdCI6MTU2NzI5NzIyOCwiZXhwIjoxNTY3MzAwODI4fQ.3TxPNn7MOppVMj7nIPOL8ceStFNhfIw62vuv5TnD5O4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/notes/5d6b126cab76f2749cba3db1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"5d6b126cab76f2749cba3db1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
