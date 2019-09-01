@@ -84,7 +84,7 @@ npm install -g nodemon
 
 Buat berkas baru `server.js`,
 ```
-const express = require('express'); 
+const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
@@ -179,7 +179,7 @@ Buat berkas baru untuk user controller di `controllers/users.js`,
 
 ```
 const userModel = require('../models/users');
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -250,7 +250,7 @@ module.exports = router;
 Perbarui `server.js` untuk memasangkan route user
 (baris baru ditandai dengan `//`),
 ```
-const express = require('express'); 
+const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
@@ -417,8 +417,7 @@ module.exports = {
   updateById: (req, res, next) => {
     noteModel.findByIdAndUpdate(req.params.noteId, {
       name: req.body.name,
-      content: req.body.content,Sunday, 01. September 2019 03:45PM 
-
+      content: req.body.content,
     }, (err, noteInfo) => {
       if (err) {
         next(err);
@@ -482,7 +481,7 @@ module.exports = router;
 
 Perbarui `server.js` (baris baru ditandai dengan `//`),
 ```
-const express = require('express'); 
+const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();app.use(logger('dev'));
